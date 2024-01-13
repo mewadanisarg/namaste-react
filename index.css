@@ -1,3 +1,71 @@
-#parent {
-    color: brown;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.025rem solid black;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 80%;
+    overflow: hidden;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.nav-items {
+    padding-right: 2 rem;
+}
+
+.nav-items>ul {
+    display: flex;
+}
+
+.nav-items>ul>li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.filter-btn {
+    margin-left: 1rem;
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 2rem;
+}
+
+.res-card {
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 200px;
+
+    margin: 10px;
+    padding: 0.5rem;
+    background-color: #eaeaf8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Added transition for a smooth effect on hover */
+}
+
+.res-card>h4,
+h3 {
+    margin: 2px;
+}
+
+.res-card:hover {
+    cursor: pointer;
+    border: 5px black;
+}
+
+.res-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
