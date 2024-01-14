@@ -69,3 +69,21 @@ h3 {
     height: auto;
     border-radius: 50%;
 }
+
+.shimmer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem;
+}
+
+.shimmer-card {
+    width: 200px;
+    height: 400px;
+    margin: 10px;
+    padding: 0.5rem;
+    background-color: #d8d8d8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Added transition for a smooth effect on hover */
+}

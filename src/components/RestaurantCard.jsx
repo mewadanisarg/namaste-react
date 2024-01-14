@@ -10,7 +10,7 @@ const ResturantCard = ({ resData }) => {
     avgRating,
     costForTwo,
     cloudinaryImageId,
-  } = resData;
+  } = resData?.info;
 
   return (
     <div className="res-card">
