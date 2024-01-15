@@ -4,19 +4,24 @@ import Shimmer from "./Shimmer";
 
 export default Body = () => {
   const [restaurantsData, setRestaurantsData] = useState([]);
+  const [filteredRestaurantsData, setFilteredRestaurantsData] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
 
     setRestaurantsData(
       // Optional chaining
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurantsData(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
@@ -26,6 +31,29 @@ export default Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            value={searchValue}
+            id=""
+            className="search-box"
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+            }}
+          />
+          <button
+            className="search-btn"
+            onClick={() => {
+              const filteredRestaurant = restaurantsData.filter((res) => {
+                res.info.name.toLowerCase().includes(searchValue.toLowerCase());
+              });
+              console.log(filteredRestaurant);
+              setFilteredRestaurantsData(filteredRestaurant);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
@@ -40,8 +68,10 @@ export default Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {restaurantsData.map((restaurant) => {
-          return <RestaurantCard key={restaurant.id} resData={restaurant} />;
+        {filteredRestaurantsData.map((restaurant) => {
+          return (
+            <RestaurantCard key={restaurant?.info.id} resData={restaurant} />
+          );
         })}
       </div>
     </div>

@@ -11,7 +11,7 @@ export default function Header() {
       <div className="nav-items">
         <ul>
           <li>Home</li>
-          <li>About</li>
+          <li path="/about">About</li>
           <li>Contact Us</li>
           <li>Cart</li>
           <button

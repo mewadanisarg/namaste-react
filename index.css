@@ -41,6 +41,13 @@
     margin-left: 1rem;
 }
 
+
+.filter {
+    display: flex;
+    flex-direction: row;
+
+}
+
 .res-container {
     display: flex;
     flex-wrap: wrap;
