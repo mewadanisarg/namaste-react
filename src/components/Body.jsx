@@ -44,9 +44,14 @@ export default Body = () => {
           <button
             className="search-btn"
             onClick={() => {
-              const filteredRestaurant = restaurantsData.filter((res) => {
-                res.info.name.toLowerCase().includes(searchValue.toLowerCase());
-              });
+              const filteredRestaurant = restaurantsData.filter(
+                (restaurant) => {
+                  return restaurant.info.name
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase());
+                }
+              );
+              console.log(restaurantsData);
               console.log(filteredRestaurant);
               console.log(searchValue);
               setFilteredRestaurantsData(filteredRestaurant);
