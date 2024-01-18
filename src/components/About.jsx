@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default function About() {
-  return (
-    <div>
-      <h1>About</h1>
-      <h1>This is JSN React</h1>
-    </div>
-  );
+export class About extends Component {
+  static propTypes = {};
+
+  render() {
+    return <div>About</div>;
+  }
 }
+
+export default About;
