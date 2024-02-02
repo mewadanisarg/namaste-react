@@ -1,7 +1,5 @@
 ##Tech Stack use
 
-# ----------------------------------------------------------------#
-
 1. React
 2. Parcel as Bundler
 3. Shimmer Package
